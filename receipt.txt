@@ -1,0 +1,59 @@
+
+item1_name = "Notebook"
+item1_price = "4.99"
+item1_qty = "2"
+
+item2_name = "Pen Pack"
+item2_price = "7.50"
+item2_qty = "1"
+
+item3_name = "Backpack"
+item3_price = "34.99"
+item3_qty = "1"
+
+tax_rate_text = "0.075"   # 7.5% sales tax
+
+# 3 different price and quantity for each item, and tax rate for the receipt.
+price1 = float(item1_price) 
+price2 = float(item2_price)
+price3 = float(item3_price)
+quantity1 = int(item1_qty)
+quantity2 = int(item2_qty)
+quantity3 = int(item3_qty)
+tax_rate = float(tax_rate_text) 
+
+subtotal1 = price1  * quantity1 
+subtotal2 = price2  * quantity2
+subtotal3 = price3  * quantity3
+subtotal_all = subtotal1 + subtotal2 + subtotal3
+# added all the subtotals together to get the total before tax, and then calculated the tax and grand total.
+tax = subtotal_all * tax_rate
+
+grandtotal = subtotal_all + tax
+
+# A header for receipt
+print("=" * 40)
+print(" " * 12 + "STORE RECEIPT")
+print("=" * 40)
+
+print(f"{item1_name} ${price1} * {quantity1}", end=" " * 7)
+print(f"Total: ${subtotal1}")
+
+print(f"{item2_name} ${price2} * {quantity2}", end=" " * 8)
+print(f"Total: ${subtotal2}")
+
+print(f"{item3_name} ${price3} * {quantity3}", end=" " * 6)
+print(f"Total: ${subtotal3}")
+
+
+print("-" * 40)
+
+
+print(f"Subtotal: ${subtotal_all}")
+print(f"Tax: ({tax_rate * 100}%): ${tax:.2f}")  # had to change tax to 2 decimal places
+
+print("-" * 40)
+
+print(f"Grand Total: ${grandtotal:.2f}")
+# the grand total also had to be changed to 2 decimal places
+print("=" * 40) 
